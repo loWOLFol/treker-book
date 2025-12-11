@@ -235,7 +235,7 @@ header {
   justify-content: center;
 }
 .book-card {
-  width: 170px;
+  width: 100%;
   height: 310px;
   background: var(--bg-card);
   border-radius: var(--radius-main);
@@ -274,6 +274,8 @@ header {
   border: none;
   padding: 0;
   cursor: pointer;
+  width: auto; /* Убираем растягивание, которое добавляли для Grid */
+  margin: 0;
 }
 
 .books-controls {
@@ -355,19 +357,33 @@ header {
 .days-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
+  gap: 8px;
   margin-top: 10px;
 }
 .day {
-  width: 30px;
-  height: 30px;
+  /* Убираем жесткую ширину/высоту, чтобы текст влез */
+  width: 100%;
+  min-height: 50px; /* Делаем ячейки чуть выше */
   background: #eee;
   display: flex;
+  flex-direction: column; /* Размещаем дату и страницы столбиком */
   align-items: center;
   justify-content: center;
-  font-size: 12px;
   border-radius: 4px;
+  padding: 2px;
 }
+
+.day .date {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.day .pages-count {
+  font-size: 10px;
+  opacity: 0.9;
+  margin-top: 2px;
+}
+
 .day.read {
   background: var(--color-accent);
   color: white;
@@ -558,35 +574,46 @@ header {
   border-top: 1px solid var(--border-color);
   background: #faf9f6;
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 15px; /* Отступ между кнопками */
+  justify-content: center; /* Центрируем кнопки */
 }
-.footer-left,
-.footer-right {
-  display: flex;
-  gap: 10px;
-}
+
+/* Общий стиль красивой кнопки */
 .footer-btn {
-  padding: 10px 20px;
-  border-radius: var(--radius-sm);
+  flex: 1; /* Кнопки растянутся равномерно */
+  padding: 12px 20px;
+  border-radius: var(--radius-main);
   border: none;
   cursor: pointer;
-  font-weight: 500;
-  font-size: 0.9rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: 0.2s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
-.add-to-library {
-  background: var(--color-accent);
+
+.edit-btn {
+  background-color: var(--bg-secondary);
+  color: var(--text-main);
+}
+
+.add-to-list {
+  background-color: var(--color-accent);
   color: white;
 }
-.edit-btn,
-.comments,
-.add-to-list {
-  background: white;
-  border: 1px solid #ccc;
+
+.comments {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
 }
 .edit-btn:hover {
   background: #eee;
+}
+
+.footer-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* АВТОРИЗАЦИЯ */
@@ -685,17 +712,19 @@ header {
 
   /* 2. КНИГИ: Убираем мелкие карточки, делаем их крупнее и по центру */
   .books-grid {
-    justify-content: center;
+    display: flex;
+    flex-direction: column; /* Книги строго одна под другой */
+    align-items: center;
+    width: 100%;
   }
   .book-card {
-    /* Чуть увеличиваем карточку, чтобы пальцем было удобно попасть */
-    width: 100%; 
-    max-width: 280px; 
+    width: 100%; /* Карточка внутри кнопки тоже на всю ширину */
+    max-width: none; /* Сбрасываем ограничения */
     height: auto;
-    min-height: 350px;
   }
+
   .book-card img {
-    height: 300px; /* Больше места под картинку */
+    height: 350px; /* Большая красивая обложка */
   }
 
   /* 3. ТРЕКЕР: Статистика и календарь */
@@ -703,12 +732,12 @@ header {
     grid-template-columns: 1fr; /* Строго одна колонка */
     gap: 1rem;
   }
-  
+
   .calendar-wrapper {
     flex-direction: column; /* Месяцы друг под другом */
     gap: 2rem;
   }
-  
+
   /* Календарь не должен быть слишком мелким */
   .days-grid {
     gap: 8px; /* Больше отступы между днями */
@@ -723,11 +752,12 @@ header {
   .profile-container {
     flex-direction: column;
   }
-  .profile-card-main, .profile-stats-mini {
+  .profile-card-main,
+  .profile-stats-mini {
     width: 100%;
     min-width: auto;
   }
-  
+
   .mini-stat-grid {
     gap: 10px;
   }
@@ -743,15 +773,22 @@ header {
     text-align: center;
     padding: 12px 5px; /* Больше область нажатия */
   }
-  
+
   /* Поиск и кнопка добавления друг под другом */
   .books-controls {
     flex-direction: column;
   }
-  .books-controls button, 
+  .books-controls button,
   .books-controls input {
     width: 100%;
     height: 44px; /* Стандартный размер под палец */
+  }
+
+  .open-modal-btn {
+    width: 100%; /* Кнопка занимает всю ширину */
+    max-width: 320px; /* Но не шире экрана телефона */
+    display: block; /* Важно для корректного отображения */
+    margin-bottom: 20px;
   }
 }
 
@@ -759,13 +796,13 @@ header {
    9. ТЕМНАЯ ТЕМА (DARK MODE)
    ========================================= */
 body.dark-theme {
-  --bg-body: #121212;       /* Очень темный фон */
-  --bg-card: #1e1e1e;       /* Темно-серые карточки */
-  --bg-secondary: #2d2d2d;  /* Элементы чуть светлее */
-  --text-main: #e0e0e0;     /* Светлый текст */
-  --text-muted: #a0a0a0;    /* Серый текст */
-  --border-color: #333333;  /* Темные границы */
-  --color-accent: #7692a0;  /* Акцент чуть мягче для глаз */
+  --bg-body: #121212; /* Очень темный фон */
+  --bg-card: #1e1e1e; /* Темно-серые карточки */
+  --bg-secondary: #2d2d2d; /* Элементы чуть светлее */
+  --text-main: #e0e0e0; /* Светлый текст */
+  --text-muted: #a0a0a0; /* Серый текст */
+  --border-color: #333333; /* Темные границы */
+  --color-accent: #7692a0; /* Акцент чуть мягче для глаз */
   --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
@@ -774,48 +811,46 @@ body.dark-theme .modal-header,
 body.dark-theme .modal-footer {
   background-color: #252525; /* Чуть светлее фона карточки */
 }
-body.dark-theme .edit-btn, 
-body.dark-theme .comments, 
+body.dark-theme .edit-btn,
+body.dark-theme .comments,
 body.dark-theme .add-to-list {
-    background: #2d2d2d;
-    color: #e0e0e0;
-    border-color: #444;
+  background: #2d2d2d;
+  color: #e0e0e0;
+  border-color: #444;
 }
 body.dark-theme .day {
-    background-color: #333;
-    color: #888;
+  background-color: #333;
+  color: #888;
 }
 
 /* =========================================
    10. ИСПРАВЛЕНИЕ ПОЗИЦИИ "СЕРИЯ"
    ========================================= */
 .modal-header {
-    position: relative; /* Обязательно для позиционирования */
-    padding-right: 60px; /* Оставляем место справа, чтобы текст не наехал на крестик */
+  position: relative; /* Обязательно для позиционирования */
+  padding-right: 60px; /* Оставляем место справа, чтобы текст не наехал на крестик */
 }
 
 .book-series {
-    position: absolute;
-    top: 20px;        /* На одной высоте с крестиком */
-    right: 50px;      /* Слева от крестика (крестик обычно right: 20px + ширина) */
-    background-color: var(--bg-secondary);
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 12px;
-    color: var(--text-muted);
-    z-index: 5;
-    max-width: 120px; /* Чтобы не наезжало на заголовок на мобильных */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  position: absolute;
+  top: 20px; /* На одной высоте с крестиком */
+  right: 50px; /* Слева от крестика (крестик обычно right: 20px + ширина) */
+  background-color: var(--bg-secondary);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--text-muted);
+  z-index: 5;
+  max-width: 120px; /* Чтобы не наезжало на заголовок на мобильных */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* На мобильных немного двигаем, чтобы не мешало */
 @media (max-width: 600px) {
-    .book-series {
-        top: 15px;
-        right: 50px;
-    }
+  .book-series {
+    top: 15px;
+    right: 50px;
+  }
 }
-
-

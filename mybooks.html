@@ -2,7 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Мои книги — Читатель</title>
     <link rel="stylesheet" href="assets/style.css" />
     <script src="assets/app.js" defer></script>
@@ -10,7 +10,11 @@
   <body>
     <header class="site-header">
       <a href="login.html" class="profile-link">
-        <img src="https://ui-avatars.com/api/?name=User&background=4e73df&color=fff&rounded=true" alt="Аккаунт" class="avatar" />
+        <img
+          src="https://ui-avatars.com/api/?name=User&background=4e73df&color=fff&rounded=true"
+          alt="Аккаунт"
+          class="avatar"
+        />
       </a>
       <nav class="nav-links">
         <a href="index.html">Главная</a>
@@ -37,7 +41,10 @@
       <div class="books-grid">
         <button class="open-modal-btn" data-category="reading" data-id="1">
           <div class="book-card">
-            <img src="https://placehold.co/300x400/4e73df/ffffff?text=1984" alt="1984" />
+            <img
+              src="https://placehold.co/300x400/4e73df/ffffff?text=1984"
+              alt="1984"
+            />
             <h3>1984</h3>
             <p>Джордж Оруэлл</p>
           </div>
@@ -45,7 +52,10 @@
 
         <button class="open-modal-btn" data-category="finished" data-id="2">
           <div class="book-card">
-            <img src="https://placehold.co/300x400/2ecc71/ffffff?text=Мастер+и+Маргарита" alt="Мастер и Маргарита" />
+            <img
+              src="https://placehold.co/300x400/2ecc71/ffffff?text=Мастер+и+Маргарита"
+              alt="Мастер и Маргарита"
+            />
             <h3>Мастер и Маргарита</h3>
             <p>Михаил Булгаков</p>
           </div>
@@ -53,7 +63,10 @@
 
         <button class="open-modal-btn" data-category="unread" data-id="3">
           <div class="book-card">
-            <img src="https://placehold.co/300x400/e74c3c/ffffff?text=Дюна" alt="Дюна" />
+            <img
+              src="https://placehold.co/300x400/e74c3c/ffffff?text=Дюна"
+              alt="Дюна"
+            />
             <h3>Дюна</h3>
             <p>Фрэнк Герберт</p>
           </div>
@@ -61,7 +74,10 @@
 
         <button class="open-modal-btn" data-category="dropped" data-id="4">
           <div class="book-card">
-            <img src="https://placehold.co/300x400/95a5a6/ffffff?text=Улисс" alt="Улисс" />
+            <img
+              src="https://placehold.co/300x400/95a5a6/ffffff?text=Улисс"
+              alt="Улисс"
+            />
             <h3>Улисс</h3>
             <p>Джеймс Джойс</p>
           </div>
@@ -69,7 +85,10 @@
 
         <button class="open-modal-btn" data-category="reading" data-id="5">
           <div class="book-card">
-            <img src="https://placehold.co/300x400/f1c40f/ffffff?text=Гарри+Поттер" alt="Гарри Поттер" />
+            <img
+              src="https://placehold.co/300x400/f1c40f/ffffff?text=Гарри+Поттер"
+              alt="Гарри Поттер"
+            />
             <h3>Гарри Поттер</h3>
             <p>Дж. К. Роулинг</p>
           </div>
@@ -81,8 +100,7 @@
           <button class="close-btn" id="closeModal">&times;</button>
 
           <div class="modal-header">
-            <div class="book-cover">
-               </div>
+            <div class="book-cover"></div>
             <div class="book-info">
               <div class="book-title">Название книги</div>
               <div class="book-author">Автор книги</div>
@@ -100,19 +118,21 @@
               <div class="section">
                 <div class="section-title">
                   Аннотация
-                  <button class="expand-btn" data-target="annotation">Подробнее <i>▼</i></button>
+                  <button class="expand-btn" data-target="annotation">
+                    Подробнее <i>▼</i>
+                  </button>
                 </div>
-                <div class="section-content" id="annotation">
-                   </div>
+                <div class="section-content" id="annotation"></div>
               </div>
 
               <div class="section">
                 <div class="section-title">
                   Герои
-                  <button class="expand-btn" data-target="characters">Подробнее <i>▼</i></button>
+                  <button class="expand-btn" data-target="characters">
+                    Подробнее <i>▼</i>
+                  </button>
                 </div>
-                <div class="section-content" id="characters">
-                   </div>
+                <div class="section-content" id="characters"></div>
               </div>
             </div>
 
@@ -120,32 +140,29 @@
               <div class="section">
                 <div class="section-title">
                   Цитаты
-                  <button class="expand-btn" data-target="quotes">Подробнее <i>▼</i></button>
+                  <button class="expand-btn" data-target="quotes">
+                    Подробнее <i>▼</i>
+                  </button>
                 </div>
-                <div class="section-content" id="quotes">
-                   </div>
+                <div class="section-content" id="quotes"></div>
               </div>
 
               <div class="section">
                 <div class="section-title">
                   Сюжет
-                  <button class="expand-btn" data-target="plot">Подробнее <i>▼</i></button>
+                  <button class="expand-btn" data-target="plot">
+                    Подробнее <i>▼</i>
+                  </button>
                 </div>
-                <div class="section-content" id="plot">
-                   </div>
+                <div class="section-content" id="plot"></div>
               </div>
             </div>
           </div>
 
           <div class="modal-footer">
-            <div class="footer-left">
-              <button class="footer-btn add-to-library">Добавить в библиотеку</button>
-              <button class="footer-btn edit-btn">Изменить</button>
-            </div>
-            <div class="footer-right">
-              <button class="footer-btn add-to-list">Добавить в сеть</button>
-              <button class="footer-btn comments">Комментарии</button>
-            </div>
+            <button class="footer-btn edit-btn">Изменить</button>
+            <button class="footer-btn add-to-list">В сеть</button>
+            <button class="footer-btn comments">Комментарии</button>
           </div>
         </div>
       </div>
@@ -156,7 +173,7 @@
           <h2>Добавить книгу</h2>
           <input type="text" placeholder="Поиск по книгам..." />
           <div class="modal-books">
-            <div class="book-card" style="height: auto; width: 100%;">
+            <div class="book-card" style="height: auto; width: 100%">
               <h3>Пример книги</h3>
               <p>Автор неизвестен</p>
             </div>
