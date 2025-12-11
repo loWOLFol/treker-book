@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Настройки — Читатель</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <script src="assets/app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="profile.html" class="profile-link">
+        <img
+          src="https://ui-avatars.com/api/?name=User&background=5d737e&color=fff&rounded=true"
+          alt="Аккаунт"
+          class="avatar"
+        />
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="mybooks.html">Мои книги</a>
+        <a href="tracker.html">Трекер</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <h2>⚙️ Настройки аккаунта</h2>
+
+      <div class="profile-card-main" style="text-align: left; margin: 0 auto">
+        <form id="settingsForm">
+          <label><strong>Сменить имя:</strong></label>
+          <input
+            type="text"
+            placeholder="Новое имя"
+            style="width: 100%; padding: 10px; margin: 10px 0 20px"
+          />
+
+          <label><strong>Сменить пароль:</strong></label>
+          <input
+            type="password"
+            placeholder="Старый пароль"
+            style="width: 100%; padding: 10px; margin: 5px 0"
+          />
+          <input
+            type="password"
+            placeholder="Новый пароль"
+            style="width: 100%; padding: 10px; margin: 5px 0 20px"
+          />
+
+          <div class="divider" style="margin-bottom: 20px"></div>
+
+          <label><strong>Тема оформления:</strong></label>
+          <select
+            id="themeSelect"
+            style="width: 100%; padding: 10px; margin-bottom: 20px"
+          >
+            <option value="light">Светлая (Library)</option>
+            <option value="dark">Тёмная (Night)</option>
+          </select>
+
+          <button
+            type="button"
+            onclick="alert('Настройки сохранены!')"
+            class="cta-btn"
+            style="width: 100%; border: none; cursor: pointer"
+          >
+            Сохранить изменения
+          </button>
+        </form>
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem">
+        <a href="profile.html" style="color: var(--color-danger)"
+          >Вернуться в профиль</a
+        >
+      </div>
+    </main>
+  </body>
+</html>

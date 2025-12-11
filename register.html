@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация — Читатель</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/app.js" defer></script>
+</head>
+<body class="auth-page">
+  <header class="site-header">
+      <a href="login.html" class="profile-link">
+         <img src="https://ui-avatars.com/api/?name=Guest&background=ccc&color=fff&rounded=true" alt="Аккаунт" class="avatar" />
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="mybooks.html">Мои книги</a>
+        <a href="tracker.html">Трекер чтения</a>
+      </nav>
+    </header>
+    <hr class="divider" />
+
+  <main class="auth-container">
+    <h2>Создание аккаунта</h2>
+    <form id="registerForm">
+      <label>Ваше имя<br><input type="text" id="regName" required placeholder="Иван Иванов"></label><br>
+      <label>Email<br><input type="email" id="regEmail" required placeholder="ivan@mail.ru"></label><br>
+      <label>Пароль<br><input type="password" id="regPass" required></label><br>
+      <label>Повторите пароль<br><input type="password" id="regPassConfirm" required></label><br>
+      <button type="submit">Создать аккаунт</button>
+    </form>
+    <p>Уже есть аккаунт? <a href="login.html">Войти</a></p>
+  </main>
+</body>
+</html>

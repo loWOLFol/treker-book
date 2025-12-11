@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой профиль — Читатель</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <script src="assets/app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="profile.html" class="profile-link">
+        <img src="assets/user.png" alt="Аккаунт" class="avatar" />
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="mybooks.html">Мои книги</a>
+        <a href="tracker.html">Трекер чтения</a>
+      </nav>
+    </header>
+    <hr class="divider" />
+
+    <main class="content">
+      <div class="profile-container">
+        
+        <div class="profile-card-main">
+          <div class="profile-header">
+            <img id="profileAvatarMain" src="" alt="Аватар" class="profile-avatar-large" />
+            <h2 id="profileName">Загрузка...</h2>
+            <p class="profile-email" id="profileEmail">...</p>
+          </div>
+          
+          <div class="profile-details">
+            <div class="detail-row">
+              <span>Дата регистрации:</span>
+              <strong id="profileDate">...</strong>
+            </div>
+            <div class="detail-row">
+              <span>Статус:</span>
+              <span class="status-badge">Читатель</span>
+            </div>
+          </div>
+
+          <button id="logoutBtn" class="logout-btn">Выйти из аккаунта</button>
+        </div>
+
+        <div class="profile-stats-mini">
+            <h3>Мои достижения</h3>
+            <div class="mini-stat-grid">
+                <div class="mini-stat">
+                    <span>12</span>
+                    <p>Книг</p>
+                </div>
+                <div class="mini-stat">
+                    <span>4.8</span>
+                    <p>Ср. оценка</p>
+                </div>
+                <div class="mini-stat">
+                    <span>5 дн.</span>
+                    <p>Серия</p>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="settings.html">Настройки</a>
+        <a href="#">О проекте</a>
+      </div>
+      <p>&copy; 2025 Читатель App.</p>
+    </footer>
+  </body>
+</html>
